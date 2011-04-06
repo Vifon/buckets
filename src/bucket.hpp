@@ -14,13 +14,16 @@ class Bucket
 		Bucket(Bucket &_bucket);
 
 		void empty();
-		void full();
+		void fill();
 
 		unsigned int level();
 		unsigned int max();
 
 		Bucket& operator<<(Bucket &_bucket);
 		Bucket& operator>>(Bucket &_bucket);
+
+		bool isFull();
+		bool isEmpty();
 };
 
 #endif

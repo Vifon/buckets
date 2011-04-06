@@ -11,7 +11,7 @@ Bucket::Bucket(Bucket &_bucket) : capacity(_bucket.capacity)
 }
 
 void Bucket::empty() { water = 0; }
-void Bucket::full() { water = capacity; }
+void Bucket::fill() { water = capacity; }
 
 unsigned int Bucket::level() { return water; }
 unsigned int Bucket::max() { return capacity; }
@@ -21,7 +21,7 @@ Bucket& Bucket::operator--() { --water; return *this; }
 
 Bucket& Bucket::operator<<(Bucket &_bucket)
 {
-	while (water < capacity && _bucket.water > 0)
+	while (!isFull() && !_bucket.isEmpty())
 	{
 		++(*this);
 		--_bucket;
@@ -31,10 +31,13 @@ Bucket& Bucket::operator<<(Bucket &_bucket)
 
 Bucket& Bucket::operator>>(Bucket &_bucket)
 {
-	while (water > 0 && _bucket.water < _bucket.capacity)
+	while (!isEmpty() && !_bucket.isFull())
 	{
 		--(*this);
 		++_bucket;
 	}
 	return *this;
 }
+
+bool Bucket::isFull() { return water == capacity; }
+bool Bucket::isEmpty() { return water == 0; }

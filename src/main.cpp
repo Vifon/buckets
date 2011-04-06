@@ -58,10 +58,10 @@ int main(int argc, char *argv[])
 				b1 >> b2;
 				break;
 			case 'u':
-				b1.full();
+				b1.fill();
 				break;
 			case 'i':
-				b2.full();
+				b2.fill();
 				break;
 			case 'j':
 				b1.empty();
