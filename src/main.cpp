@@ -5,11 +5,21 @@
 
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
-		return 3;
-	int cap1 = atoi(argv[1]), cap2 = atoi(argv[2]);
-	if (cap1 <= 0 || cap2 <= 0)
-		return 5;
+	int cap1, cap2;
+	if (argc == 0)
+	{
+		cap1 = 3;
+		cap2 = 5;
+	}
+	else
+	{
+		if (argc != 3)
+			return 3;
+		cap1 = atoi(argv[1]);
+		cap2 = atoi(argv[2]);
+		if (cap1 <= 0 || cap2 <= 0)
+			return 5;
+	}
 	int ch = 0;
 	int i;
 	const int roof = std::max(cap1, cap2) + 2 + 2;
