@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
 	int cap1, cap2;
-	if (argc == 0)
+	if (argc == 1)
 	{
 		cap1 = 3;
 		cap2 = 5;
