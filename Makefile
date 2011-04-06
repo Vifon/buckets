@@ -14,7 +14,7 @@ debug: clean all
 objs/bucket.o: src/bucket.cpp src/bucket.hpp
 	$(CC) $(CFLAGS) -c src/bucket.cpp -o objs/bucket.o
 
-objs/main.o: src/main.cpp src/menu_wrapper/menu.hpp
+objs/main.o: src/main.cpp src/bucket.hpp
 	$(CC) $(CFLAGS) -c src/main.cpp -o objs/main.o
 
 objs:

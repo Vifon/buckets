@@ -6,7 +6,14 @@
 int main(int argc, char *argv[])
 {
 	if (argc != 3)
-		return 66;
+		return 3;
+	int cap1 = atoi(argv[1]), cap2 = atoi(argv[2]);
+	if (cap1 <= 0 || cap2 <= 0)
+		return 5;
+	int ch = 0;
+	int i;
+	const int roof = std::max(cap1, cap2) + 2 + 2;
+	Bucket b1(cap1), b2(cap2);
 
 	initscr();
 	start_color();
@@ -16,11 +23,6 @@ int main(int argc, char *argv[])
 	init_pair(1, COLOR_WHITE, COLOR_BLUE);
 	refresh();
 
-	int ch = 0;
-	int i;
-	int cap1 = atoi(argv[1]), cap2 = atoi(argv[2]);
-	const int roof = std::max(cap1, cap2) + 2 + 2;
-	Bucket b1(cap1), b2(cap2);
 	WINDOW *win1, *win2;
 
 	win1 = newwin(cap1+2, 3, roof-(cap1+2), 2);
